@@ -94,60 +94,23 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────────────
-         SECTION C: Next Session + Calendar (Side by Side)
+         SECTION C: Upcoming Sessions
     ──────────────────────────────────────────────────────────── -->
-    <section class="section-py" style="background-color: #F5F5F7;">
+    <section class="section-py schedule-section" aria-labelledby="upcoming-sessions-heading">
       <div class="content-wrap">
-        <div class="grid md:grid-cols-2 gap-6 items-stretch">
+        <div class="upcoming-panel">
+          <p class="schedule-kicker">Schedule</p>
+          <h2 id="upcoming-sessions-heading">Upcoming Sessions</h2>
 
-          <!-- Left: Next Session Card -->
-          <div class="session-card">
-
-            <div class="session-card-header">
-              <span class="session-card-label">Next Session</span>
-              <span class="badge-upcoming">Upcoming</span>
+          <div class="schedule-empty">
+            <p class="schedule-empty-title">The next schedule is being planned.</p>
+            <p>Confirmed session dates, papers, and presenters will appear here.</p>
+            <div class="schedule-actions">
+              <a href="archive.html" class="btn-primary">Browse past sessions</a>
+              <a href="contact.html" class="schedule-contact-link">Contact the group</a>
             </div>
-
-            <!-- REPLACE: update each week -->
-            <p class="session-card-date">Tuesday, April 28, 2026 &middot; 4:30 PM</p>
-            <p class="session-card-location">Dunn Hall 107</p>
-
-            <hr class="session-divider">
-
-            <dl class="session-fields">
-              <div class="session-field">
-                <dt>Presenter</dt>
-                <dd>Weisi Liu</dd>
-              </div>
-              <div class="session-field">
-                <dt>Critique</dt>
-                <dd>Rhidita</dd>
-              </div>
-              <div class="session-field session-field-full">
-                <dt>Paper</dt>
-                <dd style="color:var(--text-muted);"> <a href="https://aclanthology.org/2025.naacl-long.381.pdf
- ">Is Your LLM Outdated? A Deep Look at Temporal Generalization</a> </dd>
-              </div>
-              <div class="session-field session-field-full">
-                <dt>Slides</dt>
-                <dd style="color:var(--text-muted);">Available soon</dd>
-              </div>
-            </dl>
-            <!-- /REPLACE -->
-
           </div>
-
-          <!-- Right: Calendar -->
-          <div class="session-card">
-            <div class="session-card-header">
-              <span class="session-card-label">Group Calendar</span>
-            </div>
-            <!-- Custom calendar widget - Spring 2026 Tuesday sessions (4:30–5:30 PM).
-                 REPLACE: if a Teams link is created, add "Join on Teams →" button above. -->
-            <div id="mlrg-calendar-widget"></div>
-          </div>
-
-        </div><!-- /grid -->
+        </div>
       </div>
     </section>
 

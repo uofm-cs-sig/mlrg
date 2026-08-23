@@ -574,298 +574,75 @@ a {
   outline: none;
 }
 
-/* ── 17. Session Card (Section C) ───────────────────────────── */
-.session-card {
-  background: #FFFFFF;
-  border: none;
-  border-radius: 20px;
-  padding: 2rem 2.25rem;
-  display: flex;
-  flex-direction: column;
-  box-shadow:
-    0 1px 2px rgba(0,0,0,0.04),
-    0 4px 16px rgba(0,0,0,0.06),
-    0 16px 36px rgba(0,48,135,0.05);
-  transition: box-shadow 0.25s ease, transform 0.22s ease;
+/* ── 17. Upcoming Sessions ───────────────────────────────────── */
+.schedule-section {
+  background-color: #F5F5F7;
 }
 
-.session-card:hover {
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.05),
-    0 8px 24px rgba(0,0,0,0.08),
-    0 24px 48px rgba(0,48,135,0.08);
-  transform: translateY(-3px);
-}
-
-.session-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.1rem;
-}
-
-.session-card-label {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--heading);
-  letter-spacing: -0.02em;
-}
-
-.session-card-date {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.session-card-location {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
-.session-divider {
-  border: none;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
-}
-
-.session-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-}
-
-.session-field { display: flex; flex-direction: column; gap: 0.15rem; }
-.session-field-full { grid-column: 1 / -1; }
-
-.session-fields dt {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--text-muted);
-}
-
-.session-fields dd {
-  color: var(--text-primary);
-  line-height: 1.45;
-  font-weight: 500;
-}
-
-/* ── 18. Custom Calendar Widget ─────────────────────────────── */
-#mlrg-calendar-widget {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.cal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.cal-month-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--heading);
-  letter-spacing: -0.01em;
-}
-
-.cal-nav {
-  background: none;
+.upcoming-panel {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2.5rem;
+  text-align: center;
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.2rem 0.6rem;
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  color: var(--text-secondary);
-  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
-  min-height: 32px;
+  border-radius: 16px;
 }
-.cal-nav:hover {
-  background-color: var(--primary-pale);
-  border-color: var(--border-strong);
+
+.schedule-kicker {
+  margin-bottom: 0.4rem;
   color: var(--primary);
-}
-
-.cal-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
-}
-
-.cal-day-name {
-  text-align: center;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 0.3rem 0 0.4rem;
 }
 
-.cal-cell {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.05rem;
-  border-radius: 6px;
-  min-height: 2.1rem;
-  cursor: default;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.cal-cell.cal-empty { background: transparent; }
-
-.cal-day-num {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-/* Today ring */
-.cal-cell.cal-today .cal-day-num {
-  background: var(--primary);
-  color: #fff;
-  border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
+.upcoming-panel h2 {
+  color: var(--heading);
+  font-size: 1.75rem;
   font-weight: 700;
 }
 
-/* Past meeting day — neutral gray tint */
-.cal-cell.cal-past {
-  background: #E4EAF0;
-  cursor: pointer;
-}
-.cal-cell.cal-past .cal-day-num {
+.schedule-empty {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
   color: var(--text-secondary);
-  font-weight: 600;
 }
-.cal-cell.cal-past:hover { background: #D0D9E4; transform: scale(1.08); }
 
-/* Upcoming meeting day — blue tint */
-.cal-cell.cal-upcoming {
-  background: #DBEAFE;
-  cursor: pointer;
-}
-.cal-cell.cal-upcoming .cal-day-num {
-  color: #1D4ED8;
+.schedule-empty-title {
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
   font-weight: 700;
 }
-.cal-cell.cal-upcoming:hover { background: #BFDBFE; transform: scale(1.08); }
 
-/* Event dot */
-.cal-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-.cal-past     .cal-dot { background: var(--text-muted); }
-.cal-upcoming .cal-dot { background: var(--primary); }
-
-/* Tooltip */
-.cal-tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--heading);
-  color: #fff;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  padding: 0.45rem 0.75rem;
-  border-radius: 8px;
-  white-space: nowrap;
-  z-index: 200;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-  text-align: center;
-  pointer-events: none;
-  transition: opacity 0.15s ease, visibility 0.15s ease;
-}
-
-.cal-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: var(--heading);
-}
-
-.cal-cell:hover .cal-tooltip,
-.cal-cell:focus-visible .cal-tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.cal-tag {
-  display: inline-block;
-  padding: 1px 6px;
-  border-radius: 9999px;
-  font-size: 0.62rem;
-  font-weight: 600;
-  margin-top: 2px;
-  letter-spacing: 0.03em;
-}
-.cal-tag.past     { background: #E2E8F0; color: var(--text-secondary); }
-.cal-tag.upcoming { background: var(--primary-pale); color: var(--primary); font-weight: 700; }
-
-/* Legend row */
-.cal-legend {
+.schedule-actions {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  margin-top: 0.75rem;
-  font-size: 0.7rem;
-  color: var(--text-muted);
+  margin-top: 1.5rem;
 }
-.cal-legend-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  margin-right: 4px;
-  vertical-align: middle;
+
+.schedule-contact-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.schedule-contact-link:hover {
+  text-decoration: underline;
 }
 
 /* ── 18. Mobile Responsiveness ───────────────────────────────── */
-/* Calendar at small screens */
-@media (max-width: 480px) {
-  #mlrg-calendar-widget { padding: 0.75rem 0.5rem; }
-  .cal-cell { min-height: 1.9rem; padding: 0.15rem 0.02rem; }
-  .cal-day-num { font-size: 0.7rem; }
-  .cal-day-name { font-size: 0.56rem; letter-spacing: 0.03em; }
-  .cal-tooltip { display: none; }
-}
-
 /* Touch-friendly minimum tap targets + mobile layout */
 @media (max-width: 768px) {
   /* Navbar shrinks on mobile */
   #main-nav .nav-inner { height: 3.5rem; }
 
-  /* Session card single-column on mobile */
-  .session-fields { grid-template-columns: 1fr; }
-  .session-field-full { grid-column: 1; }
-  .session-card { padding: 1.25rem 1.25rem; }
+  .upcoming-panel { padding: 1.75rem 1.25rem; }
+  .schedule-actions { flex-direction: column; gap: 1rem; }
 
   /* Touch targets */
   .btn-primary { min-height: 48px; padding: 0.75rem 1.5rem; font-size: 0.95rem; }
