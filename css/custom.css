@@ -604,14 +604,14 @@ a {
   font-weight: 700;
 }
 
-.schedule-empty {
+.schedule-session {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
 }
 
-.schedule-empty-title {
+.schedule-session-title {
   margin-bottom: 0.35rem;
   color: var(--text-primary);
   font-weight: 700;
