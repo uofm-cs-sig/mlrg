@@ -237,7 +237,7 @@ function initMobileNav() {
   });
 }
 
-/* Continuous news ticker with an accessible pause control. */
+/* Continuous news ticker. */
 function initNewsTicker() {
   const banner = document.querySelector('.news-banner');
   if (!banner) return;
@@ -246,13 +246,7 @@ function initNewsTicker() {
   copy.setAttribute('aria-hidden', 'true');
   track.appendChild(copy);
   banner.classList.add('news-ready');
-  const toggle = banner.querySelector('.news-toggle');
-  toggle.hidden = false;
-  toggle.addEventListener('click', function () {
-    const paused = banner.classList.toggle('news-paused');
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Resume news' : 'Pause news';
-  });
+
 }
 
 /* ── 6. Init ─────────────────────────────────────────────────── */

@@ -706,14 +706,9 @@ a {
 .news-item { margin: 0; color: var(--text-secondary); }
 .news-ready .news-item { flex: 0 0 auto; white-space: nowrap; padding-right: 4rem; }
 .news-ready .news-track { animation: news-scroll 32s linear infinite; }
-.news-paused .news-track,
-.news-banner:hover .news-track,
-.news-banner:focus-within .news-track { animation-play-state: paused; }
-.news-toggle { flex-shrink: 0; color: var(--primary); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem; cursor: pointer; }
-.news-toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 @keyframes news-scroll { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .news-ready .news-track { animation: none !important; width: auto; }
   .news-ready .news-item { white-space: normal; padding-right: 0; flex: 1; }
-  .news-item[aria-hidden="true"], .news-toggle { display: none; }
+  .news-item[aria-hidden="true"] { display: none; }
 }
