@@ -237,10 +237,29 @@ function initMobileNav() {
   });
 }
 
+/* Continuous news ticker with an accessible pause control. */
+function initNewsTicker() {
+  const banner = document.querySelector('.news-banner');
+  if (!banner) return;
+  const track = banner.querySelector('.news-track');
+  const copy = track.querySelector('.news-item').cloneNode(true);
+  copy.setAttribute('aria-hidden', 'true');
+  track.appendChild(copy);
+  banner.classList.add('news-ready');
+  const toggle = banner.querySelector('.news-toggle');
+  toggle.hidden = false;
+  toggle.addEventListener('click', function () {
+    const paused = banner.classList.toggle('news-paused');
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.textContent = paused ? 'Resume news' : 'Pause news';
+  });
+}
+
 /* ── 6. Init ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   // Inject shared nav + footer (defined in js/partials.js)
   injectPartials();
+  initNewsTicker();
   initMobileNav();
   if (typeof lucide !== 'undefined') lucide.createIcons();
 

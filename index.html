@@ -9,6 +9,14 @@
   <meta property="og:description" content="Weekly AI/ML paper discussions at the University of Memphis.">
   <!-- <meta property="og:image" content="assets/og-image.png"> -->
   <link rel="icon" href="assets/logo.png" type="image/png">
+  <!-- Keep direct homepage visits on the clean directory URL. -->
+  <script>
+    if ((location.protocol === 'http:' || location.protocol === 'https:') &&
+        location.pathname.endsWith('/index.html')) {
+      history.replaceState(history.state, '',
+        location.pathname.slice(0, -'index.html'.length) + location.search + location.hash);
+    }
+  </script>
   <!-- Inline: runs before first paint. Hides overlay immediately when
        animation should be skipped (link-click after first visit).    -->
   <script>
@@ -76,20 +84,19 @@
     </section>
 
     <!-- ─────────────────────────────────────────────────────────
-         NEWS BLOCK - centered banner above card + calendar
+         NEWS BLOCK - continuously scrolling announcements
     ──────────────────────────────────────────────────────────── -->
-    <div class="py-3 text-center" style="background-color: var(--bg-card); border-bottom: 1px solid var(--border);">
-      <div class="content-wrap">
-        <div class="inline-flex items-center justify-center gap-2 text-sm">
-          <svg class="w-4 h-4 flex-shrink-0" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
-          </svg>
-          <span class="font-semibold" style="color: var(--primary);">News</span>
-          <span class="mx-1" style="color: var(--border);">|</span>
-          <span style="color: var(--text-secondary);">Our first Fall 2026 meeting is today, <time datetime="2026-09-16">September 16</time>, from <strong>4:00–5:00 PM at Dunn Hall 203</strong>. Join us to share ideas and plan the semester!</span>
+    <section class="news-banner py-3" aria-label="Group news">
+      <div class="content-wrap news-layout">
+        <span class="font-semibold" style="color: var(--primary);">News</span>
+        <div class="news-viewport">
+          <div class="news-track">
+            <p class="news-item">Our next Fall 2026 session is on <time datetime="2026-09-23">September 23</time>, from <strong>4:00–5:00 PM at Dunn Hall 203</strong>, with <strong>Samagata Banerjee</strong> presenting. Paper: TBD.</p>
+          </div>
         </div>
+        <button class="news-toggle" type="button" aria-pressed="false" hidden>Pause news</button>
       </div>
-    </div>
+    </section>
 
     <!-- ─────────────────────────────────────────────────────────
          SECTION C: Upcoming Sessions
@@ -101,17 +108,14 @@
           <h2 id="upcoming-sessions-heading">Upcoming Sessions</h2>
 
           <div class="schedule-session">
-            <h3 class="schedule-session-title">First meeting · September 16, 2026</h3>
-            <p><time datetime="2026-09-16T16:00:00-05:00">Wednesday, 4:00–5:00 PM</time> · <strong>Dunn Hall 203</strong></p>
-            <p class="mt-4">For our first meeting, we will:</p>
-            <ul class="list-disc pl-6 mt-2 space-y-1 text-left">
-              <li>Share ideas among ourselves</li>
-              <li>Finalize the meeting schedule</li>
-              <li>Discuss whether we want to introduce anything new that could be useful for everyone</li>
-            </ul>
-            <p class="mt-4">Our regular meetings will be on <strong>Wednesdays from 4:00–5:00 PM at Dunn Hall 203</strong>.</p>
+            <h3 class="schedule-session-title">Samagata Banerjee · September 23, 2026</h3>
+            <p><time datetime="2026-09-23T16:00:00-05:00">Wednesday, 4:00–5:00 PM</time> · <strong>Dunn Hall 203</strong></p>
+            <p class="mt-4"><strong>Presenter:</strong> Samagata Banerjee</p>
+            <p><strong>Critiquer:</strong> TBD</p>
+            <p><strong>Paper:</strong> TBD</p>
+            <p class="mt-4">Regular meetings are on <strong>Wednesdays from 4:00–5:00 PM at Dunn Hall 203</strong>.</p>
             <div class="schedule-actions">
-              <a href="archive.html" class="btn-primary">Browse past sessions</a>
+              <a href="archive.html" class="btn-primary">View full schedule</a>
               <a href="contact.html" class="schedule-contact-link">Contact the group</a>
             </div>
           </div>

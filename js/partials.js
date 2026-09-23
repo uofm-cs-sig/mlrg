@@ -9,14 +9,14 @@ var MLRG_NAV = `
     <div class="nav-inner flex items-center justify-between">
 
       <div class="flex items-center">
-        <a href="index.html" class="flex items-center gap-2 no-underline">
+        <a href="./" class="flex items-center gap-2 no-underline">
           <img src="assets/logo.png" alt="MLRG" class="h-11 w-11 rounded-full">
           <span class="font-display font-bold text-xl" style="color: var(--heading); font-family: Arial, sans-serif;">MLRG</span>
         </a>
       </div>
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html" class="nav-link" data-page="index">
+        <a href="./" class="nav-link" data-page="index">
           <i data-lucide="house" class="nav-icon"></i>
           Home
         </a>
@@ -52,7 +52,7 @@ var MLRG_NAV = `
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden pb-4 mt-1">
-      <a href="index.html" class="nav-link-mobile" data-page="index">
+      <a href="./" class="nav-link-mobile" data-page="index">
         <i data-lucide="house" class="nav-icon"></i>
         Home
       </a>
@@ -95,6 +95,12 @@ function injectPartials() {
   var navEl = document.getElementById('nav-placeholder');
   if (navEl) {
     navEl.outerHTML = MLRG_NAV;
+    // File previews need an explicit filename; web servers resolve ./ to index.html.
+    if (window.location.protocol === 'file:') {
+      document.querySelectorAll('#main-nav a[href="./"]').forEach(function (a) {
+        a.setAttribute('href', 'index.html');
+      });
+    }
     var page = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
     document.querySelectorAll('[data-page="' + page + '"]').forEach(function (a) {
       a.classList.add('active');
